@@ -12,12 +12,15 @@ import {
   VisibilityState,
 } from '@tanstack/table-core';
 import { BadgeProperties } from '../../modus-badge/modus-badge';
+import { CheckboxProperties } from '../../modus-checkbox/modus-checkbox';
 import {
   COLUMN_DEF_DATATYPE_INTEGER,
   COLUMN_DEF_DATATYPE_LINK,
   COLUMN_DEF_DATATYPE_TEXT,
+  CELL_EDIT_TYPE_CHECKBOX,
   CELL_EDIT_TYPE_DROPDOWN,
   COLUMN_DEF_DATATYPE_BADGE,
+  COLUMN_DEF_DATATYPE_CHECKBOX,
 } from '../modus-table.constants';
 
 export type ModusTableRowData = RowData;
@@ -34,10 +37,11 @@ export type ModusTableColumnDataType =
   | typeof COLUMN_DEF_DATATYPE_TEXT
   | typeof COLUMN_DEF_DATATYPE_INTEGER
   | typeof COLUMN_DEF_DATATYPE_LINK
-  | typeof COLUMN_DEF_DATATYPE_BADGE;
+  | typeof COLUMN_DEF_DATATYPE_BADGE
+  | typeof COLUMN_DEF_DATATYPE_CHECKBOX;
 // | typeof COLUMN_DEF_DATATYPE_DATE;
 
-export type ModusTableCellEditorType = typeof CELL_EDIT_TYPE_DROPDOWN;
+export type ModusTableCellEditorType = typeof CELL_EDIT_TYPE_DROPDOWN | typeof CELL_EDIT_TYPE_CHECKBOX;
 // typeof CELL_EDIT_TYPE_AUTOCOMPLETE |
 
 export type ModusTableCellDateEditorArgs = { format: string };
@@ -108,6 +112,10 @@ export interface ModusTableCellLink {
 export interface ModusTableCellBadge extends BadgeProperties {
   text: string;
   _type?: typeof COLUMN_DEF_DATATYPE_BADGE;
+}
+
+export interface ModusTableCellCheckbox extends CheckboxProperties {
+  _type?: typeof COLUMN_DEF_DATATYPE_CHECKBOX;
 }
 
 export interface ModusTableCellValueChange {
