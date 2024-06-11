@@ -6,14 +6,13 @@ import { ModusTableCellCheckbox } from '../../models/modus-table.models';
 
 interface ModusTableCellCheckboxProps {
   checkbox: ModusTableCellCheckbox;
-  // onBadgeClick?: (badge: ModusTableCellBadge) => void;
 }
 
-export const ModusTableCellCheckboxElement: FunctionalComponent<ModusTableCellCheckboxProps> = ({ checkbox: checkbox }) => {
+export const ModusTableCellCheckboxElement: FunctionalComponent<ModusTableCellCheckboxProps> = ({ checkbox }) => {
   return (
     <div class="cell-checkbox">
       <modus-checkbox
-        ariaLabel={checkbox?.ariaLabel}
+        ariaLabel={checkbox.ariaLabel}
         checked={checkbox.checked}
         disabled={checkbox.disabled}
         indeterminate={checkbox.indeterminate}

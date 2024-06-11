@@ -3,7 +3,6 @@ import { Host, JSX, Component, Prop, h } from '@stencil/core';
 import {
   KEYBOARD_ENTER,
   CELL_EDIT_TYPE_AUTOCOMPLETE,
-  CELL_EDIT_TYPE_CHECKBOX,
   CELL_EDIT_TYPE_DATE,
   CELL_EDIT_TYPE_DROPDOWN,
   CELL_EDIT_TYPE_TEXT,
@@ -157,29 +156,10 @@ export class ModusTableCellEditor {
     );
   }
 
-  renderCheckboxInput(): JSX.Element[] {
-    return (
-      <modus-checkbox
-        {...this.getDefaultProps('Checkbox input')}
-        checked={this.value === 'true'}
-        disabled={true}
-        onCheckboxClick={(e: CustomEvent<boolean>) => {
-          this.editedValue = e.detail ? 'true' : 'false';
-          this.valueChange(this.editedValue);
-        }}
-        // onValueChange={(e: CustomEvent<string>) => (this.editedValue = e.detail)}
-        onBlur={this.handleBlur}
-        onKeyDown={this.handleKeyDown}
-        size="medium"></modus-checkbox>
-    );
-  }
-
   renderEditor(): JSX.Element[] {
     switch (this.type) {
       case CELL_EDIT_TYPE_DROPDOWN:
         return this.renderDropdownInput();
-      case CELL_EDIT_TYPE_CHECKBOX:
-        return this.renderCheckboxInput();
       case CELL_EDIT_TYPE_AUTOCOMPLETE:
         return this.renderAutocompleteInput();
       case CELL_EDIT_TYPE_DATE:

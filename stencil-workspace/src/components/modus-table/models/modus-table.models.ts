@@ -17,7 +17,6 @@ import {
   COLUMN_DEF_DATATYPE_INTEGER,
   COLUMN_DEF_DATATYPE_LINK,
   COLUMN_DEF_DATATYPE_TEXT,
-  CELL_EDIT_TYPE_CHECKBOX,
   CELL_EDIT_TYPE_DROPDOWN,
   COLUMN_DEF_DATATYPE_BADGE,
   COLUMN_DEF_DATATYPE_CHECKBOX,
@@ -41,7 +40,7 @@ export type ModusTableColumnDataType =
   | typeof COLUMN_DEF_DATATYPE_CHECKBOX;
 // | typeof COLUMN_DEF_DATATYPE_DATE;
 
-export type ModusTableCellEditorType = typeof CELL_EDIT_TYPE_DROPDOWN | typeof CELL_EDIT_TYPE_CHECKBOX;
+export type ModusTableCellEditorType = typeof CELL_EDIT_TYPE_DROPDOWN;
 // typeof CELL_EDIT_TYPE_AUTOCOMPLETE |
 
 export type ModusTableCellDateEditorArgs = { format: string };
